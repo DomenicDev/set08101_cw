@@ -1,0 +1,268 @@
+/********************************************/
+/* OVERRIDE GENERAL BROWSER STYLES          */
+/********************************************/
+
+body {
+    margin: 0; /* we want to use whole area */
+    padding: 0;
+}
+
+p {
+    font-family: "DejaVu Sans", sans-serif;
+    font-size: large;
+}
+
+h1 {
+    font-family: FreeMono,sans-serif;
+    font-size: 3em;
+}
+
+main {
+    background-color: beige;
+}
+
+/********************************************/
+/*              HEADER STYLING              */
+/********************************************/
+header {
+    display: flex;
+    background-color: #2f2f2f;
+    position: fixed;
+    height: auto;
+    width: 100%;
+    padding: 2px;
+    z-index: 2;
+}
+
+.header-title {
+    font-family: "Courier 10 Pitch", sans-serif;
+    font-size: 3em;
+    text-decoration: none;
+    margin-left: 150px;
+    margin-top: 5px;
+    color: whitesmoke;
+
+}
+
+#top-menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 2px;
+    text-align: center;
+}
+
+#top-menu-nav {
+    display: block;
+    width: auto;
+    padding-left: 550px;
+}
+
+.top-menu-item {
+    transition-duration: 0.3s;
+    display: inline;
+    float: left;
+    margin-right: 2px;
+}
+
+.top-menu-item:hover {
+    background-color: gray;
+}
+
+.top-menu-item > a {
+    display: block; /* make whole area clickable */
+    padding: 1.2em;
+    color: whitesmoke;
+    text-decoration: none;
+    font-family: "Courier 10 Pitch", sans-serif;
+    font-size: 20px;
+}
+
+/*********************************
+        SECTION STYLING
+/**********************************/
+section {
+    margin: 0;
+    padding: 60px 0; /*top-bottom:120, left-right:0 */
+    width: auto;
+    height: auto;
+}
+
+.row {
+    margin: 60px 15%;
+    padding: 25px;
+}
+
+.grid-container {
+    display: grid;
+    grid-column-gap: 0;
+}
+
+.two-columns {
+    grid-template-columns: 50% 50%;
+}
+
+.three-columns {
+    grid-template-columns: auto auto auto;
+}
+
+.grid-item {
+    width: auto;
+    height: auto;
+    margin: 40px 30px;
+}
+
+/* INDIVIDUAL SECTION STYLING */
+#eye-catch-splash {
+    /* todo */
+
+    height: 750px;
+    background-image: url("../images/landing_image.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: overlay;
+    background-color: #000000Bf;
+}
+
+#play-now {
+    background-color: deepskyblue;
+    align-content: center;
+    text-align: center;
+}
+
+#characters {
+    height: auto;
+    background-color: #00003D;
+}
+
+#get-started {
+    background-color: #00003D;
+}
+
+#character-profiles-row {
+    background-color: darkgoldenrod;
+    box-shadow: #0A0A0A;
+}
+
+.welcome-header-group {
+    text-align: center;
+}
+
+.welcome-header-group > h1 {
+    font-family: "Courier 10 Pitch", sans-serif;
+    font-size: 82px;
+    font-weight: lighter;
+    color: greenyellow;
+}
+
+.welcome-header-group > h2 {
+    font-family: "Courier 10 Pitch", sans-serif;
+    font-size: 52px;
+    color: lightgray;
+}
+
+.color-bright {
+    color: whitesmoke;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+
+/*************************/
+/*        BUTTON         */
+/*************************/
+.button {
+    display: inline-block;
+    border-radius: 0;
+    background-color: green;
+    border: none;
+    text-align: center;
+    font-size: 22px;
+    padding: 20px;
+    transition: all 0.2s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.button a {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+    text-decoration: none;
+    color: white;
+    font-family: FreeMono, sans-serif;
+}
+
+.button a:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.button:hover a {
+    padding-right: 25px;
+}
+
+.button:hover a:after {
+    opacity: 1;
+    right: 0;
+}
+
+/************************/
+/*        FOOTER        */
+/************************/
+
+footer {
+    /*TODO: Do not use hard-coded height*/
+    background-color: #111111;
+}
+
+.footer-caption {
+    font-family: Chandas, sans-serif;
+    font-size: 20px;
+    color: #ffffff9f;
+}
+
+.footer-info {
+    background-color: #0A0A0A;
+    height: 65px;
+}
+
+.footer-info-text {
+    color: #ffffff9f;
+    font-family: FreeMono, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    padding-left: 150px;
+    padding-top: 20px;
+}
+
+
+.character-profile {
+    text-align: center;
+    align-content: center;
+    align-items: center;
+}
+
+.character-profile > h2 {
+    color: whitesmoke;
+}
+
+.character-profile > p {
+    color: wheat;
+    font-style: italic;
+}
+
+
+#video-row {
+    padding-top: 10px;
+}
+
+#footer-widgets {
+    margin-top: 0;
+}
