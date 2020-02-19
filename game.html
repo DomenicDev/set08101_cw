@@ -2,9 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Play | The Last Dragon</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <!-- <script src="js/game.js"></script> -->
+    <script type="text/javascript" src="game/phaser.min.js"></script>
+    <script type="text/javascript" src="game/game.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+<header>
+    <!--<img src="TODO" alt="LOGO" /> -->
+    <a class="header-title" href="index.html">The Last Dragon</a>
+    <nav id="top-menu-nav">
+        <ul id="top-menu">
+            <li class="top-menu-item"><a href="index.html">Home</a></li>
+            <li class="top-menu-item"><a href="game.html">Game</a></li>
+            <li class="top-menu-item"><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <section id="game">
+        <div class="row">
+            <h1>Get started now!</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas congue pharetra ultricies.</p>
+        </div>
 
+        <div id="game-container" class="row" style="background-color: antiquewhite; text-align: center">
+
+        </div>
+
+        <div class="row">
+            <canvas id="gameCanvas" width="800" height="400" style="background-color: red"></canvas>
+        </div>
+
+
+    </section>
+</main>
+<script src="js/game.js"></script>
 </body>
 </html>
