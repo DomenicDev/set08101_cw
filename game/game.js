@@ -1,7 +1,7 @@
-import {LoadScene} from "./scenes/load_scene";
-import {MenuScene} from "./scenes/menu_scene";
+import {LoadScene} from "./scenes/load_scene.js";
+import {MenuScene} from "./scenes/menu_scene.js";
 
-window.onload = function () {
+
 
     const config = {
         width: 1280,
@@ -17,5 +17,3 @@ window.onload = function () {
     };
 
     const game = new Phaser.Game(config);
-
-};
