@@ -1,3 +1,5 @@
+import {LoadScene} from "./scenes/load_scene";
+import {MenuScene} from "./scenes/menu_scene";
 
 window.onload = function () {
 
@@ -8,6 +10,9 @@ window.onload = function () {
         dom: {
             createContainer: true
         },
+        scenes: [LoadScene, MenuScene]
+
+
         // ...
     };
 
