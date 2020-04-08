@@ -1,7 +1,8 @@
 import {LoadScene} from "./scenes/load_scene.js";
 import {MenuScene} from "./scenes/menu_scene.js";
+import {GameScene} from "./scenes/game_scene.js";
 
-
+window.onload = function () {
 
     const config = {
         width: 1280,
@@ -10,10 +11,24 @@ import {MenuScene} from "./scenes/menu_scene.js";
         dom: {
             createContainer: true
         },
-        scenes: [LoadScene, MenuScene]
-
-
-        // ...
+        scene: [LoadScene, MenuScene, GameScene],
+        pixelArt: true,
+        scale: {
+            mode: Phaser.Scale.FIT,
+            autoCenter: Phaser.Scale.CENTER_BOTH
+        },
+        physics: {
+            default: "arcade",
+            arcade: {
+                debug: true
+            }
+        }
     };
 
     const game = new Phaser.Game(config);
+
+    console.log("game created")
+
+};
+
+

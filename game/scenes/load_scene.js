@@ -9,11 +9,22 @@ export class LoadScene extends Phaser.Scene {
 
     }
 
-    init() {
-
-    }
-
     preload() {
+        // load images
+        this.load.setPath("./game/assets/");
+
+        this.load.image(CONSTANTS.IMAGES.PLAY_BUTTON, 'play_button.png');
+        this.load.image(CONSTANTS.IMAGES.BACKGROUND_IMAGE_MAIN_MENU, 'landing_image.png');
+
+        // load sounds and music
+        this.load.audio(CONSTANTS.SOUNDS.MAIN_MENU_MUSIC, 'TownTheme.mp3'); // credits go to https://opengameart.org/content/town-theme-rpg
+
+        // load sprites
+        this.load.spritesheet(CONSTANTS.SPRITES.PLAYER_SPRITE, 'main_character.png', { frameWidth: 64, frameHeight: 64 });
+
+        this.load.image(CONSTANTS.IMAGES.TERRAIN_01, "hyptosis_tile-art-batch-1.png");
+
+        this.load.tilemapTiledJSON(CONSTANTS.MAPS.MAIN_TILE_MAP, "map.json");
 
     }
 
