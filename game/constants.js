@@ -22,6 +22,7 @@ export const CONSTANTS = {
 
     MAPS: {
         MAIN_TILE_MAP: "MAIN_TILE_MAP"
-    }
+    },
 
+    PLAYER_SPEED: 128,
 };

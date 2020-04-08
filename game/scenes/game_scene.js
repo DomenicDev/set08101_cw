@@ -3,7 +3,13 @@ import {STORY} from "../adventure.js";
 
 export class GameScene extends Phaser.Scene {
 
+    // characters
     player;
+    peter;
+    cedric;
+    david;
+    characterMap;
+
     keyboard;
     storyPoint;
     showingDialog;
@@ -59,6 +65,7 @@ export class GameScene extends Phaser.Scene {
 
     create() {
         this.initPlayer();
+        this.initCharacters();
         this.initInput();
         this.initGameWorld();
         this.initCamera();
@@ -75,6 +82,22 @@ export class GameScene extends Phaser.Scene {
         this.player.setSize(40, 50).setOffset(10, 10);
         this.player.setCollideWorldBounds(true);
         this.player.anims.playReverse("left");
+    }
+
+    initCharacters() {
+        this.peter = this.physics.add.sprite(350, 350, CONSTANTS.SPRITES.PLAYER_SPRITE, 26);
+        this.peter.setSize(40, 50).setOffset(10, 10);
+
+        this.cedric = this.physics.add.sprite(370, 830, CONSTANTS.SPRITES.PLAYER_SPRITE, 32);
+        this.cedric.setSize(40, 50).setOffset(10, 10);
+
+        this.david = this.physics.add.sprite(1100, 600, CONSTANTS.SPRITES.PLAYER_SPRITE, 18);
+        this.david.setSize(40, 50).setOffset(10, 10);
+
+        this.characterMap = new Map();
+        this.characterMap.set("Peter", this.peter);
+        this.characterMap.set("Cedric", this.cedric);
+        this.characterMap.set("David", this.david);
     }
 
     initInput() {
@@ -97,7 +120,6 @@ export class GameScene extends Phaser.Scene {
         // make camera follow the player
         this.cameras.main.startFollow(this.player);
         this.cameras.main.roundPixels = true;
-
     }
 
     /***************************/
@@ -116,19 +138,19 @@ export class GameScene extends Phaser.Scene {
     handlePlayerMovement() {
         // move right
         if (this.keyboard.D.isDown) {
-            this.setPlayerSpeedX(64);
+            this.setPlayerSpeedX(CONSTANTS.PLAYER_SPEED);
         }
         // move left
         if (this.keyboard.A.isDown) {
-            this.setPlayerSpeedX(-64);
+            this.setPlayerSpeedX(-CONSTANTS.PLAYER_SPEED);
         }
         // move up
         if (this.keyboard.W.isDown) {
-            this.setPlayerSpeedY(-64);
+            this.setPlayerSpeedY(-CONSTANTS.PLAYER_SPEED);
         }
         // move down
         if (this.keyboard.S.isDown) {
-            this.setPlayerSpeedY(64);
+            this.setPlayerSpeedY(CONSTANTS.PLAYER_SPEED);
         }
         // reset x velocity
         if (this.keyboard.A.isUp && this.keyboard.D.isUp) {
@@ -164,21 +186,20 @@ export class GameScene extends Phaser.Scene {
 
 
     updateTriggers() {
-        if (this.storyPoint === null || this.showingDialog) {
+        if (this.storyPoint === undefined || this.showingDialog) {
             return;
         }
         // get trigger
         let actor = this.storyPoint.actor;
         let actorPosition = this.getTriggerPosition(actor);
         let distance = this.computeDistance(this.player, actorPosition);
-        if (distance <= 40) {
+        if (distance <= 60) {
             console.log("TRIGGER.....");
-            const name = this.storyPoint.trigger;
+            const actor = this.storyPoint.actor;
+            const title = "Dialog with " + actor;
             const text = this.storyPoint.text;
-            const optionA = this.storyPoint.options[0];
-            const optionB = this.storyPoint.options[1];
-            this.createDialog(name, text, optionA, optionB);
-            this.showingDialog = true;
+            const options = this.storyPoint.options;
+            this.createDialog(title, text, options, this.getCharacterByName(actor));
         }
     }
 
@@ -188,21 +209,23 @@ export class GameScene extends Phaser.Scene {
         return Math.sqrt( (a*a) + (b*b));
     }
 
+    getCharacterByName(name) {
+        return this.characterMap.get(name);
+    }
+
     getTriggerPosition(triggerName) {
-        let x = -1;
-        let y = -1;
-        if (triggerName === "Peter") {
-            x = 100;
-            y = 100;
-        }
+        console.log(triggerName);
+        const actor = this.getCharacterByName(triggerName);
+        let x = actor.x;
+        let y = actor.y;
         return {x, y};
     }
 
-    createDialog(title, text, optionA, optionB) {
+    createDialog(title, text, options, actor) {
         // gui code inspired from: https://codepen.io/rexrainbow/pen/MPZWZG
         let dialog = this.rexUI.add.dialog({
-            x: 400,
-            y: 300,
+            x: actor.x,
+            y: actor.y -200,
 
             background: this.rexUI.add.roundRectangle(0, 0, 100, 100, 20, 0x3e2723),
 
@@ -220,13 +243,10 @@ export class GameScene extends Phaser.Scene {
             }),
 
             content: this.add.text(0, 0, text, {
-                fontSize: '24px'
+                fontSize: '12px'
             }),
 
-            choices: [
-                createLabel(this, optionA.text),
-                createLabel(this, optionB.text),
-            ],
+            choices: createLabels(this, options),
 
             space: {
                 title: 25,
@@ -247,11 +267,7 @@ export class GameScene extends Phaser.Scene {
         const game = this;
         dialog
             .on('button.click', function (button, groupName, index) {
-                if (index === 0) {
-                    game.activateStoryPoint(optionA.next);
-                } else if (index === 1) {
-                    game.activateStoryPoint(optionB.next);
-                }
+                game.onOptionChoose(index);
                 dialog.destroy();
             }, this)
             .on('button.over', function (button, groupName, index) {
@@ -260,6 +276,16 @@ export class GameScene extends Phaser.Scene {
             .on('button.out', function (button, groupName, index) {
                 button.getElement('background').setStrokeStyle();
             });
+        this.showingDialog = true;
+    }
+
+    onOptionChoose(index) {
+        let next = this.storyPoint.options[index].next;
+        if (next === -1) {
+            console.log("end...")
+        } else {
+            this.activateStoryPoint(next);
+        }
     }
 
     activateStoryPoint(id) {
@@ -270,6 +296,7 @@ export class GameScene extends Phaser.Scene {
         //console.log(storyPoint);
         this.storyPoint = storyPoint;
         console.log("new story point (id: " + id + ")");
+        this.showingDialog = false;
     }
 
 }
@@ -283,12 +310,23 @@ const getStoryPoint = function (id) {
     return STORY.find( node => node.id === id );
 };
 
-const createLabel = function (scene, text, backgroundColor) {
+const createLabels = function (scene, options) {
+  let choices = [];
+  console.log(options);
+  options.forEach(opt => {
+      console.log(opt);
+      console.log(opt.text);
+      choices.push(createLabel(scene, opt.text));
+  });
+  return choices;
+};
+
+const createLabel = function (scene, text) {
     return scene.rexUI.add.label({
         background: scene.rexUI.add.roundRectangle(0, 0, 100, 40, 20, 0x6a4f4b),
 
         text: scene.add.text(0, 0, text, {
-            fontSize: '24px'
+            fontSize: '16px'
         }),
 
         space: {
