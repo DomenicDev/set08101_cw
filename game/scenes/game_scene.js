@@ -125,7 +125,7 @@ export class GameScene extends Phaser.Scene {
     /**************************/
 
     update() {
-        if (this.player.active) {
+        if (this.player.active && !this.showingDialog) {
             this.handlePlayerMovement();
             this.handlePlayerAnimations();
         }
@@ -274,13 +274,20 @@ export class GameScene extends Phaser.Scene {
             .on('button.out', function (button, groupName, index) {
                 button.getElement('background').setStrokeStyle();
             });
+        game.onShowDialog();
+    }
+
+    onShowDialog() {
         this.showingDialog = true;
+        this.setPlayerSpeedX(0);
+        this.setPlayerSpeedY(0);
     }
 
     onOptionChoose(index) {
         let next = this.storyPoint.options[index].next;
         if (next === -1) {
-            console.log("end...")
+            console.log("story end...");
+            this.createDialog("STORY END", "The story came to an end!\nPlease reload the page to start the game again.", [], this.player);
         } else {
             this.activateStoryPoint(next);
         }
