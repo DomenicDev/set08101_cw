@@ -22,7 +22,6 @@ h1 {
 h2 {
     font-family: 'Libre Baskerville', sans-serif;
     font-size: 1.5em;
-    color: #0A0A0A;
 }
 
 a {
@@ -123,7 +122,7 @@ section {
 }
 
 .three-columns {
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 33% 33% 33%;
 }
 
 .grid-item {
@@ -359,4 +358,29 @@ footer {
 
 #footer-widgets {
     margin-top: 0;
+}
+
+
+/*********************/
+/* RESPONSIVE DESIGN */
+/*********************/
+@media only screen and (max-width: 720px){
+    .two-columns {
+        grid-template-columns: 100%
+    }
+
+    .three-columns {
+        grid-template-columns: 100%
+    }
+
+    .grid-item {
+        width: auto;
+        height: auto;
+        margin: 40px 30px;
+    }
+
+    .row {
+        margin: 10px 20px;
+    }
+
 }
