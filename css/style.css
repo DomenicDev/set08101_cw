@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Rubik:wght@800&display=swap');
+
 /********************************************/
 /* OVERRIDE GENERAL BROWSER STYLES          */
 /********************************************/
@@ -8,13 +10,23 @@ body {
 }
 
 p {
-    font-family: "DejaVu Sans", sans-serif;
+    font-family: 'Rubik', sans-serif;
     font-size: large;
 }
 
 h1 {
-    font-family: FreeMono,sans-serif;
+    font-family: 'Libre Baskerville', sans-serif;
     font-size: 3em;
+}
+
+h2 {
+    font-family: 'Libre Baskerville', sans-serif;
+    font-size: 1.5em;
+    color: #0A0A0A;
+}
+
+a {
+    font-family: 'Rubik', sans-serif;
 }
 
 main {
@@ -25,13 +37,21 @@ main {
 /*              HEADER STYLING              */
 /********************************************/
 header {
-    display: flex;
-    background-color: #2f2f2f;
+    background-color: #1f271b;
     position: fixed;
-    height: auto;
+    height: 70px;
     width: 100%;
     padding: 2px;
     z-index: 2;
+    clear:both;
+    overflow:auto;
+}
+
+
+.logo-container {
+    padding-top: 10px;
+    padding-left: 40px;
+    float: left;
 }
 
 .header-title {
@@ -41,7 +61,6 @@ header {
     margin-left: 150px;
     margin-top: 5px;
     color: whitesmoke;
-
 }
 
 #top-menu {
@@ -52,37 +71,39 @@ header {
 }
 
 #top-menu-nav {
-    display: block;
-    width: auto;
-    padding-left: 550px;
+    margin-right: 100px;
+    float: right;
 }
 
 .top-menu-item {
-    transition-duration: 0.3s;
-    display: inline;
-    float: left;
+    transition: 0.3s ease;
+    display: inline-block;
     margin-right: 2px;
+    border-style: solid;
+    border-width: 0;
+    margin-top: 10px;
 }
 
 .top-menu-item:hover {
-    background-color: gray;
+   background-color: gray;
 }
 
 .top-menu-item > a {
-    display: block; /* make whole area clickable */
-    padding: 1.2em;
+    display: inline-block; /* make whole area clickable */
+    padding: 0.5em 1.2em;
     color: whitesmoke;
     text-decoration: none;
-    font-family: "Courier 10 Pitch", sans-serif;
+    font-family: "Libre Baskerville", sans-serif;
     font-size: 20px;
 }
+
 
 /*********************************
         SECTION STYLING
 /**********************************/
 section {
     margin: 0;
-    padding: 60px 0; /*top-bottom:120, left-right:0 */
+    padding: 30px 0; /*top-bottom:120, left-right:0 */
     width: auto;
     height: auto;
 }
@@ -111,11 +132,36 @@ section {
     margin: 40px 30px;
 }
 
+
+/*******************************/
+/*      BACKGROUND COLORS      */
+/*******************************/
+.background-bright {
+    background-color:#b39c4d ;
+}
+/**#a8763e*/
+/*#f9df74*/
+
+.background-light-green {
+    background-color: #768948;
+}
+
+.background-green {
+    background-color: #607744;
+}
+
+.background-light-dark-green {
+    background-color: #34623f;
+}
+
+.background-dark-green {
+    background-color: #1f271b;
+}
+
+
 /* INDIVIDUAL SECTION STYLING */
 #eye-catch-splash {
-    /* todo */
-
-    height: 750px;
+    height: 800px;
     background-image: url("../images/landing_image.png");
     background-repeat: no-repeat;
     background-size: cover;
@@ -129,19 +175,36 @@ section {
     text-align: center;
 }
 
+@keyframes bounce {
+    0%   { padding-top: 0; }
+    50%  { padding-top: 15px; }
+    100%  { padding-top: 0; }
+}
+
+#logo {
+    margin-top: 40px;
+    animation: bounce 2s infinite;
+}
+
 #characters {
     height: auto;
-    background-color: #00003D;
 }
 
 #get-started {
-    background-color: #00003D;
 }
 
 #character-profiles-row {
-    background-color: darkgoldenrod;
-    box-shadow: #0A0A0A;
+
 }
+
+#adventure-image-column {
+    padding-top: 100px;
+}
+
+#choose-your-own-adventure {
+   /* background: linear-gradient(180deg, rgba(30,47,35,1) 1%, #607744 28%);*/
+}
+
 
 .welcome-header-group {
     text-align: center;
@@ -160,12 +223,32 @@ section {
     color: lightgray;
 }
 
+.heading-color-bright {
+    color: wheat;
+}
+
+.heading-color-dark {
+    color: #1e2f23;
+}
+
+.color-bright_2 {
+    color:#b39c4d;
+}
+
+.color-bright_1 {
+    color:#1f271b;
+}
+
 .color-bright {
-    color: whitesmoke;
+    color: wheat;
 }
 
 .text-align-center {
     text-align: center;
+}
+
+.rounded {
+    border-radius: 200px;
 }
 
 
@@ -175,7 +258,7 @@ section {
 .button {
     display: inline-block;
     border-radius: 0;
-    background-color: green;
+    background-color: #768948;
     border: none;
     text-align: center;
     font-size: 22px;
@@ -220,6 +303,12 @@ section {
 footer {
     /*TODO: Do not use hard-coded height*/
     background-color: #111111;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+#footer-navigation-list li > a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
 }
 
 .footer-caption {
@@ -242,11 +331,21 @@ footer {
     padding-top: 20px;
 }
 
-
 .character-profile {
+    padding: 20px;
+    border-radius: 20px;
     text-align: center;
     align-content: center;
     align-items: center;
+    box-shadow: 7px 17px 76px -31px rgba(0,0,0,0.75);
+}
+
+.grow-on-hover {
+    transition:all 0.3s ease;
+}
+
+.grow-on-hover:hover {
+    transform: scale(1.05);
 }
 
 .character-profile > h2 {
@@ -256,11 +355,6 @@ footer {
 .character-profile > p {
     color: wheat;
     font-style: italic;
-}
-
-
-#video-row {
-    padding-top: 10px;
 }
 
 #footer-widgets {

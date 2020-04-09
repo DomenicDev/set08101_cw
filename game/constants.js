@@ -9,7 +9,8 @@ export const CONSTANTS = {
     IMAGES: {
         PLAY_BUTTON: "PLAY_BUTTON",
         BACKGROUND_IMAGE_MAIN_MENU: "BACKGROUND_IMAGE_MAIN_MENU",
-        TERRAIN_01: "TERRAIN_01"
+        TERRAIN_01: "TERRAIN_01",
+        LOGO: "LOGO"
     },
 
     SOUNDS: {

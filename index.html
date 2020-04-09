@@ -2,14 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>THE LAST DRAGON</title>
+    <title>The Three Villagers</title>
     <link type="text/css" rel="stylesheet" href="css/style.css" />
     <script src="libs/jquery.js"></script>
 </head>
 <body>
 <header>
-    <!--<img src="TODO" alt="LOGO" /> -->
-    <a class="header-title" href="index.html">The Last Dragon</a>
+    <div class="logo-container">
+        <a href="index.html"><img src="images/logo_inline.png" alt="logo"></a>
+    </div>
     <nav id="top-menu-nav">
         <ul id="top-menu">
             <li class="top-menu-item"><a href="index.html">Home</a></li>
@@ -22,14 +23,13 @@
     <section id="eye-catch-splash" class="section-single">
         <div class="row">
             <div class="welcome-header-group">
-                <h1>THE LAST DRAGON</h1>
-                <div class="button"><a href="#about">Play Now For Free!</a></div>
+                <img id="logo" alt="logo" src="images/logo.png" />
             </div>
         </div>
     </section>
 
-    <section id="about" class="section-single">
-        <div class="row grid-container two-columns">
+    <section id="about" class="background-bright">
+        <div class="row grid-container two-columns heading-color-dark">
             <div class="grid-item">
                 <h1>About the game</h1>
                 <p>
@@ -40,46 +40,81 @@
                 </p>
             </div>
             <div class="grid-item">
-                <img src="images/screenshot_sample1.jpg" alt="screenshot from game" />
+                <img src="images/ingame_03.PNG" alt="screenshot from game" />
             </div>
         </div>
     </section>
-    <section id="characters">
+    <section id="characters" class="background-light-dark-green">
         <div class="row">
             <h1 class="color-bright text-align-center">The Characters</h1>
         </div>
         <div id="character-profiles-row" class="row grid-container three-columns color-bright">
             <div class="grid-item">
-                <div class="character-profile">
+                <div class="character-profile background-bright grow-on-hover">
                     <img src="images/player.png" alt="Karlos Eisenfaust image"/>
-                    <h2>Karlos Eisenfaust</h2>
+                    <h2>Peter</h2>
                     <p>First son of King Julien</p>
                 </div>
             </div>
             <div class="grid-item">
-                <div class="character-profile">
+                <div class="character-profile background-bright grow-on-hover">
                     <img src="images/player.png" alt="Karlos Eisenfaust image"/>
-                    <h2>Benedikt Neubauer</h2>
+                    <h2>Cedric</h2>
                     <p>Wizard from Furtwangen</p>
                 </div>
             </div>
             <div class="grid-item">
-                <div class="character-profile">
+                <div class="character-profile background-bright grow-on-hover">
                     <img src="images/player.png" alt="Karlos Eisenfaust image"/>
-                    <h2>Tim Scheifler</h2>
+                    <h2>David</h2>
                     <p>Warrior of Lord Pfeiffer</p>
                 </div>
             </div>
         </div>
-        <div id="video-row" class="row text-align-center">
-            <iframe width="1280" height="720" src="https://www.youtube.com/embed/y881t8ilMyc"></iframe>
+    </section>
+    <section id="choose-your-own-adventure" class="background-green">
+        <div class="row grid-container two-columns color-bright">
+            <div id="adventure-image-column" class="grid-item">
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <img src="images/ingame_01.PNG" alt="ingame screenshot">
+                    </div>
+                </div>
+            </div>
+            <div class="grid-item">
+                <h1 class="color-bright">Choose your own adventure!</h1>
+                <div class="grid-container two-columns">
+                    <div class="grid-item">
+                        <h2>Move freely!</h2>
+                        <p class="color-bright_1">Explore the game world on your own.</p>
+                    </div>
+                    <div class="grid-item">
+                        <h2>It's up to you!</h2>
+                        <p class="color-bright_1">Make decisions to influence and change the story.</p>
+                    </div>
+                    <div class="grid-item">
+                        <h2>Interact with characters</h2>
+                        <p class="color-bright_1">Talk to other characters to learn more about the story.</p>
+                    </div>
+                    <div class="grid-item">
+                        <h2>Different endings!</h2>
+                        <p class="color-bright_1">Based on your decisions the story can have multiple endings.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
-    <section id="contribute">
+    <section id="get-started" class="background-bright">
+        <div class="row text-align-center">
+            <h1 class="heading-color-dark">Ready for the Adventure?</h1>
+            <div class="button"><a href="game.html">Play now!</a></div>
+        </div>
+    </section>
+    <section id="contribute" class="background-light-dark-green">
         <div class="grid-container two-columns row">
             <div class="grid-item">
-                <h1>Contribute to the project</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas congue pharetra ultricies. Aliquam viverra rutrum tempor. Aenean pretium nec sem.</p>
+                <h1 class="heading-color-bright">Contribute to the project</h1>
+                <p class="heading-color-bright">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas congue pharetra ultricies. Aliquam viverra rutrum tempor. Aenean pretium nec sem.</p>
                 <div class="button">
                     <a href="https://github.com/DomenicDev/set08101_cw">Visit Project</a>
                 </div>
@@ -89,33 +124,33 @@
             </div>
         </div>
     </section>
-    <section id="get-started">
-        <div class="row text-align-center">
-            <h1 class="color-bright">Ready for the Adventure?</h1>
-            <div class="button"><a href="game.html">Play now!</a></div>
-        </div>
-    </section>
 </main>
 <footer>
     <div id="footer-widgets" class="row grid-container three-columns">
         <div class="grid-item">
-            <h2 class="footer-caption">NAVIGATION</h2>
+            <nav id="footer-navigation">
+                <h2 class="footer-caption">NAVIGATION</h2>
+                <ul id="footer-navigation-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="game.html">Game</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
         </div>
         <div class="grid-item">
             <h2 class="footer-caption">CONTACT</h2>
+            <p>Domenic Cassisi<br/><a href="mailto:40457750@live.napier.ac.uk">40457750@live.napier.ac.uk</a><br/></p>
         </div>
         <div class="grid-item">
             <h2 class="footer-caption">OTHERS</h2>
+            <a href="https://github.com/DomenicDev/set08101_cw"><img src="images/GitHub-Mark-Light-120px-plus.png" width="60px" alt="GitHub logo with link to project"/></a>
         </div>
     </div>
     <div class="footer-info">
         <p class="footer-info-text">Copyright &copy; by Domenic Cassisi, 2020</p>
     </div>
 </footer>
-
 <!-- add scripts -->
 <script src="js/general.js"></script>
-
-
 </body>
 </html>

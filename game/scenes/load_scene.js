@@ -15,6 +15,7 @@ export class LoadScene extends Phaser.Scene {
 
         this.load.image(CONSTANTS.IMAGES.PLAY_BUTTON, 'play_button.png');
         this.load.image(CONSTANTS.IMAGES.BACKGROUND_IMAGE_MAIN_MENU, 'landing_image.png');
+        this.load.image(CONSTANTS.IMAGES.LOGO, "logo.png");
 
         // load sounds and music
         this.load.audio(CONSTANTS.SOUNDS.MAIN_MENU_MUSIC, 'TownTheme.mp3'); // credits go to https://opengameart.org/content/town-theme-rpg

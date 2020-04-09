@@ -70,9 +70,7 @@ export class GameScene extends Phaser.Scene {
         this.initGameWorld();
         this.initCamera();
 
-        //    this.createDialog("Some title", "Do you really want to\n show me your house?", "Yeah, sure!", "No, please not!");
-
-        // start game
+        // start game by activating first story point
         this.activateStoryPoint(1);
     }
 
@@ -206,7 +204,7 @@ export class GameScene extends Phaser.Scene {
     computeDistance(posA, posB) {
         const a = posA.x - posB.x;
         const b = posA.y - posB.y;
-        return Math.sqrt( (a*a) + (b*b));
+        return Math.sqrt((a*a) + (b*b));
     }
 
     getCharacterByName(name) {

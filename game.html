@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <title>Play | The Last Dragon</title>
     <script src="libs/jquery.js"></script>
-    <!-- <script src="js/game.js"></script> -->
     <script src="libs/phaser.min.js"></script>
     <script type="module" src="game/game.js"></script>
     <link type="text/css" rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 <header>
-    <!--<img src="TODO" alt="LOGO" /> -->
-    <a class="header-title" href="index.html">The Last Dragon</a>
+    <div class="logo-container">
+        <a href="index.html"><img src="images/logo_inline.png" alt="logo"></a>
+    </div>
     <nav id="top-menu-nav">
         <ul id="top-menu">
             <li class="top-menu-item"><a href="index.html">Home</a></li>
@@ -22,22 +22,42 @@
     </nav>
 </header>
 <main>
-    <section id="game">
+    <section id="game" class="background-bright">
         <div class="row">
-            <h1>Get started now!</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas congue pharetra ultricies.</p>
+            <h2>Controls</h2>
+            <p>Only the "W", "A", "S" and "D" keys are required to control the players movement.</p>
+
+            <div id="game-container">
+                <!-- will be used by phaser.js -->
+            </div>
         </div>
 
-        <div id="game-container" class="row" style="background-color: antiquewhite; text-align: center">
-
-        </div>
-
-        <div class="row">
-            <canvas id="gameCanvas" width="800" height="400" style="background-color: red"></canvas>
-        </div>
     </section>
 </main>
-<script src="js/game.js"></script>
-
+<footer>
+    <div id="footer-widgets" class="row grid-container three-columns">
+        <div class="grid-item">
+            <nav id="footer-navigation">
+                <h2 class="footer-caption">NAVIGATION</h2>
+                <ul id="footer-navigation-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="game.html">Game</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="grid-item">
+            <h2 class="footer-caption">CONTACT</h2>
+            <p>Domenic Cassisi<br/><a href="mailto:40457750@live.napier.ac.uk">40457750@live.napier.ac.uk</a><br/></p>
+        </div>
+        <div class="grid-item">
+            <h2 class="footer-caption">OTHERS</h2>
+            <a href="https://github.com/DomenicDev/set08101_cw"><img src="images/GitHub-Mark-Light-120px-plus.png" width="60px" alt="GitHub logo with link to project"/></a>
+        </div>
+    </div>
+    <div class="footer-info">
+        <p class="footer-info-text">Copyright &copy; by Domenic Cassisi, 2020</p>
+    </div>
+</footer>
 </body>
 </html>
