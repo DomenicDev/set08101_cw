@@ -4,14 +4,15 @@
 /* OVERRIDE GENERAL BROWSER STYLES          */
 /********************************************/
 
+
 body {
     margin: 0; /* we want to use whole area */
     padding: 0;
 }
 
-p {
+p, a {
     font-family: 'Rubik', sans-serif;
-    font-size: large;
+    font-size: 1.2em;
 }
 
 h1 {
@@ -22,10 +23,6 @@ h1 {
 h2 {
     font-family: 'Libre Baskerville', sans-serif;
     font-size: 1.5em;
-}
-
-a {
-    font-family: 'Rubik', sans-serif;
 }
 
 main {
@@ -261,15 +258,16 @@ section {
     border: none;
     text-align: center;
     font-size: 22px;
-    padding: 20px;
+
     transition: all 0.2s;
     cursor: pointer;
     margin: 5px;
 }
 
 .button a {
+    padding: 20px;
     cursor: pointer;
-    display: inline-block;
+    display: block;
     position: relative;
     transition: 0.5s;
     text-decoration: none;
@@ -278,16 +276,16 @@ section {
 }
 
 .button a:after {
-    content: '\00bb';
+    content: ' \00bb  ';
     position: absolute;
     opacity: 0;
-    top: 0;
-    right: -20px;
+    top: 20px;
+    right: -25px;
     transition: 0.5s;
 }
 
 .button:hover a {
-    padding-right: 25px;
+    padding-right: 35px;
 }
 
 .button:hover a:after {
